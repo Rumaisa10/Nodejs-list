@@ -1,4 +1,12 @@
-const os = require('os');
+const EvenEmitter = require('events');
 
+const emitter = new EvenEmitter();
 
-console.log(os.platform())
+const School= require('./school')
+const school = new School()
+
+emitter.on('bellring',({period,text})=>{
+    console.log(`boss rumaisa will run bcz ${period} ${text}`);
+})
+
+school.startPeriod();
